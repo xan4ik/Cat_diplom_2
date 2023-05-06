@@ -1,0 +1,7 @@
+{
+  "name": "DiplomVer3",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
