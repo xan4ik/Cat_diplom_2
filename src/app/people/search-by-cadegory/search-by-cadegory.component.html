@@ -1,0 +1,16 @@
+<ng-template #temp>
+  <ion-content>
+    <p>"Пользователи не найдены"</p>
+  </ion-content>
+</ng-template>
+
+<ion-content>
+  <ng-container *ngIf="people.length; else temp">
+    <app-select-with-search [items]="people" [searchFunc]="peopleSearchFunc" [showSelect]="false">
+      <ng-template let-item #itemView>
+        <app-profile-preview [profile]="item" [routerLink]="['/main/profiles/profile', item.id]">
+        </app-profile-preview>
+      </ng-template>
+    </app-select-with-search>
+</ng-container>
+</ion-content>

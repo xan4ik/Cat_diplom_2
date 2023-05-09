@@ -1,0 +1,11 @@
+<div class="preview">
+  <div class="image-container">
+    <img [src]="profile.imageSource">
+  </div>
+  <div class="data-container">
+    <span class="name">{{getFullName()}}</span>
+    <ng-container *ngFor="let item of profile.competances">
+      <app-text-with-border [value]="item" class="margin-top"></app-text-with-border>
+    </ng-container>       
+  </div>
+</div>

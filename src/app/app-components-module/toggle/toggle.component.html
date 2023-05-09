@@ -1,0 +1,9 @@
+<div class="toggle-container">
+  <button class="button" [ngClass]= "{'selected': isLeftSelected}" (click)="switch(true)">
+    <span class="text">{{left}}</span>
+  </button>
+
+  <button class="button" [ngClass]="{'selected': !isLeftSelected}" (click)="switch(false)">
+    <span class="text"> {{right}} </span>
+  </button> 
+</div>

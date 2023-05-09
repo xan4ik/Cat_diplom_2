@@ -1,0 +1,46 @@
+.full-screen{
+    height: 100%;
+
+    .data-block{
+            
+        .data-header{
+            font-style: normal;
+            font-weight: 400;
+            line-height: 22px;
+            font-size: 16px;
+            color: #21C9AD;
+        }
+
+        p{
+            font-style: normal;
+            font-weight: 400;
+            line-height: 22px;
+            font-size: 14px;
+            color: white;
+        }
+    }
+
+    .line
+    {
+        background-color: #7268DC;
+        height: 1px;
+        width: 100%;
+    }
+}
+
+.center-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .error{
+        text-align: center;
+        
+        #error-text{
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
+}

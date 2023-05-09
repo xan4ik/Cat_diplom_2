@@ -1,0 +1,50 @@
+<app-header name="Заменить" [isHidden]="true"></app-header>
+
+<ng-container *ngIf="profile; else notFound">
+  <ion-content class="full-screen ion-padding">
+    <div class="profile-card">
+      <app-profile-preview [profile]="profile">
+      </app-profile-preview>
+      <button (click)="solvoSubscription()">Разрулить</button>
+    </div>
+    <div class="data-block">
+      <h2 class="data-header">Контактная информация</h2>
+      <p>Телефон: {{profile.phone}}</p>
+      <p>Почта: {{profile.email}}</p>
+      
+      <p *ngFor="let item of profile.links">{{item.source}}: {{item.value}}</p>
+      
+      <p>Город: {{profile.locale}}</p>
+      <div class="line"></div>
+    </div>
+
+
+    <div id="work-experience" class="data-block" *ngIf="profile.works.length">
+      <h2 class="data-header">Опыт работы</h2>
+        <div *ngFor="let work of profile.works">
+          <p>{{work.place}}</p>
+          <p>{{getDateString(work)}}</p>
+        </div>
+      <div class="line"></div>
+    </div>
+
+    <div id="portfolio" class="data-block" *ngIf="profile.portfolio.length">
+      <h2 class="data-header">Портфолио</h2>
+        <div *ngFor="let portfolio of profile.portfolio">
+          <p>{{portfolio.source}}</p>
+          <p>{{getShortDateString(portfolio.date)}}</p>
+        </div>
+      <div class="line"></div>
+    </div>
+
+  </ion-content>
+</ng-container>
+
+
+<ng-template #notFound>
+  <div class="full-screen center-content">
+    <div class="error">
+      <span class="error-text">Пользователь не найден</span>
+    </div>
+  </div>
+</ng-template>

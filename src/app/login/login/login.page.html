@@ -1,0 +1,44 @@
+<ion-content [fullscreen]="true">
+  <div class="image_container">
+    <img id="purple_img" src="./assets/login_svg/purple_lines.svg"/>
+    <img id="green_img" src="./assets/login_svg/green_lines.svg"/>
+  </div>
+
+  <div class="header">
+      <span class="green">Web</span>
+      <span class="purple">Planet</span>
+  </div>
+
+  <div class="input-content">
+    <app-input-field-with-icon id="first-field"
+      source="/assets/input-icons/people.svg"
+      placeholder="Логин"
+      (onChanged)="loginData($event)"
+    >
+    </app-input-field-with-icon>
+
+    <app-input-field-with-icon
+      source="/assets/input-icons/password.svg"
+      type="password"
+      placeholder="Пароль"
+      (onChanged)="passwordData($event)"
+    >
+    </app-input-field-with-icon>
+
+    <app-button-text (click)= "clickLogin()" name = "Войти">
+    </app-button-text>
+
+    <div class="link-button-container" >
+      <app-image-button *ngFor="let item of links"
+        class="circle-button"
+        [source] = "item.source"
+        [link]="item.link"
+      >
+      </app-image-button>
+    </div>
+
+    <div id="registr">
+      <a routerLink="/registration">Зарегистрироваться</a>
+    </div>
+  </div>
+</ion-content>

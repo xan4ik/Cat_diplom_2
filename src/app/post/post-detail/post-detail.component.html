@@ -1,0 +1,16 @@
+<app-header [name]="post ? post.namePost : 'Ой, ошибка'" [isHidden]="true"></app-header>
+
+<ng-container *ngIf="post; else notFound">
+  <ion-content class="full-screen">
+    <app-post-preview [post]="post" [short]="false"></app-post-preview>>
+  </ion-content>
+</ng-container>
+
+
+<ng-template #notFound>
+  <div class="full-screen center-content">
+    <div class="error">
+      <span class="error-text">Пост не найден</span>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,29 @@
+.field-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    border: 1px solid #7268DC;
+    border-radius: 10px;
+
+    width: 100%;
+    height: 50px;
+
+    position: relative;
+
+    .icon{
+        width: 20px;
+        height: 20px;
+        margin-left: 18px;
+    }
+
+    input{
+        display: block;
+        width: 70%;
+        height: calc(2.25rem + 2px);
+        margin-left: 10px;
+        font-size: 1rem;
+        background-color: #ffffff00;
+        border: 1px solid #bdbdbd00;
+    }
+}

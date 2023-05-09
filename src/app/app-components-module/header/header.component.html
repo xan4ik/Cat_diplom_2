@@ -1,0 +1,8 @@
+<div class="header">
+  <img class="icon" id="start" (click)="onLeftClick()" *ngIf="!isHidden" src="/assets/input-icons/arrow.svg" alt="back">
+  <div class="text">
+    <p class="headerText">{{name}}</p>
+  </div>
+  <img *ngIf="imgEnd.length" class="icon" (click)="onRightClick()" id = "end" [src]="imgEnd" alt="icon">
+</div>
+<div class="line"></div>

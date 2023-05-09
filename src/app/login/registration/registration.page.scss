@@ -1,0 +1,105 @@
+.input-content{
+    height: 90%;
+    overflow: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    #first-field{
+      margin-top: 65px;
+    }
+
+    #login-field{
+        margin-top: 15px;
+    }
+
+    app-input-field-with-icon, app-select-with-search, app-text-with-border{
+      width: 90%;
+      margin-top: 18px;
+    }
+
+    .map-button-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    
+        border: 1px solid #7268DC;
+        border-radius: 10px;
+    
+        width: 90%;
+        margin-top: 18px;
+        height: 50px;
+    
+        .icon{
+            width: 20px;
+            height: 20px;
+            margin-left: 18px;
+        }
+    
+        .map-button {    
+            display: block;
+            
+            width: 70%;
+            height: calc(2.25rem + 2px);
+            margin-left: 10px;
+            
+            background-color: #ffffff00;
+            border: 1px solid #bdbdbd00;
+
+            text-align: left;
+            
+            .text{
+                font-size: 1rem;
+                color: rgba(255, 255, 255, 0.4);
+            }
+            
+        }
+    }
+    
+    .competence
+    {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: left;
+        height: 65px;
+        width: 90%;
+        
+        .icon
+        {
+            width: 24px;
+            height: 24px;
+            margin: 0 15px;
+        }
+
+        .text
+        {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 20px;
+          
+            color: #ffffff5b;
+        }
+    }
+
+    .competence-list{
+        width: 90%;
+    }
+}
+
+.modal-header{
+    
+    .modal-header-content{
+        text-align: center;
+
+        ion-title{
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 36px;
+            color: #7268DC;
+        }
+    }
+}

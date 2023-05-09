@@ -1,0 +1,112 @@
+<ion-header>
+  <app-header name = "Регистрация" [isHidden] = "true">
+  </app-header>
+</ion-header>
+
+<ion-content>
+  <div class="input-content">
+    <app-input-field-with-icon id="first-field"
+      source="/assets/input-icons/people.svg"
+      placeholder="Фамилия"  
+      (onChanged)="updateSurname($event)"
+    >
+    </app-input-field-with-icon>
+
+    <app-input-field-with-icon
+      source="/assets/input-icons/people.svg"
+      placeholder="Имя"  
+      (onChanged)="updateName($event)"
+    >
+    </app-input-field-with-icon>
+
+    <app-input-field-with-icon
+      source="/assets/input-icons/people.svg"
+      placeholder="Отчество"  
+      (onChanged)="updateFatherName($event)"
+    >
+    </app-input-field-with-icon>
+
+    <app-input-field-with-icon
+      source="/assets/input-icons/phone.svg"
+      type="number"
+      placeholder="Телефон"  
+      (onChanged)="updatePhone($event)"
+    >
+    </app-input-field-with-icon>
+
+    <div class="map-button-container">
+      <img class="icon" src="/assets/input-icons/map.svg"/>
+      <button id="select-city" class="map-button text-left" >
+        <span class="text">{{registrationModel.locale ?registrationModel.locale: "Местоположение"}}</span>
+      </button>
+    </div>
+
+    <div class="competence" id="select-competance">
+      <img class="icon" src="/assets/input-icons/plusCircle.svg" alt="">
+      <p class="text">Добавить компетенцию</p>
+    </div>
+
+    <div class="competence-list" *ngIf="registrationModel.competances.length">
+      <ng-container *ngFor="let item of registrationModel.competances">
+        <app-text-with-border [value]="item" [showCross]="true" (delete)="removeCompetance(item)">
+        </app-text-with-border>
+      </ng-container>
+    </div>
+
+    <app-input-field-with-icon id="login-field"
+      source="/assets/input-icons/people.svg"
+      placeholder="Логин"  
+      (onChanged)="updateLogin($event)"
+    >
+    </app-input-field-with-icon>
+
+    <app-input-field-with-icon
+      source="/assets/input-icons/password.svg"
+      type="password"
+      placeholder="Пароль"
+      (onChanged)="updatePassword($event)"
+    >
+    </app-input-field-with-icon>
+
+    <app-button-text name="Регистрация" (buttonClick)="register()">
+    </app-button-text>
+  </div>
+</ion-content>
+
+
+
+<ion-modal trigger="select-city" #cityModal>
+  <ng-template>
+    <app-header name = "Выберите город" 
+      imgEnd="/assets/input-icons/ok.svg"
+      (leftClick)="cancelCity(); cityModal.dismiss();"
+      (rightClick)="confirmCity(); cityModal.dismiss();">
+    </app-header>
+
+    <ion-content>
+      <app-select-with-search [items]="cities"  (valueChange)="cityChange($event)">
+        <ng-template #itemView let-item>
+          <p>{{item}}</p>
+        </ng-template>
+      </app-select-with-search>
+    </ion-content>
+  </ng-template>
+</ion-modal> 
+
+<ion-modal trigger="select-competance" #competanceModal>
+  <ng-template>
+    <app-header name = "Выберите компетенцию" 
+      imgEnd="/assets/input-icons/ok.svg"
+      (leftClick)="cancelCompetance(); competanceModal.dismiss();"
+      (rightClick)="confirmCompetance(); competanceModal.dismiss();">
+    </app-header>
+
+    <ion-content>
+      <app-select-with-search [items]="competance" [multiple]="true" (valueChange)="competanceChange($event)">
+        <ng-template #itemView let-item>
+          <p>{{item}}</p>
+        </ng-template>
+      </app-select-with-search>
+    </ion-content>
+  </ng-template>
+</ion-modal> 

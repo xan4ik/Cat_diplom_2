@@ -1,0 +1,57 @@
+<app-header name="Главная" [isHidden]="true"></app-header>
+
+<ion-content class="main ion-padding">
+  <app-input-field-with-icon 
+    class="margin-top" 
+    placeholder="Поиск" 
+    source="/assets/input-icons/search.svg"
+    (onChanged)="searchbarInput($event)">
+  </app-input-field-with-icon>
+
+  <div class="selector-search margin-top">
+    <app-toggle
+      left="Люди рядом"
+      right="Компетенции"
+      (valueChange)="onToggleSearchChange($event)">
+    </app-toggle>
+
+    <div class="margin-top inner-content">
+      <ng-container *ngIf="isPeopleNear; else searchByCompetance">
+        <ng-container *ngTemplateOutlet="showPeople; context: { $implicit: peopleNear }"></ng-container> 
+      </ng-container>
+    </div> 
+  </div>
+
+
+  <div class="selector-people margin-top">
+    <app-toggle
+      left="Подписки"
+      right="Подписчики"
+      (valueChange)="onTogglePeopleChange($event)">
+    </app-toggle>
+
+    <div class="margin-top inner-content">
+      <ng-container *ngIf="isSubscription;">
+        <ng-container *ngTemplateOutlet="showPeople; context: { $implicit: subscriptions }"></ng-container> 
+      </ng-container>
+      <ng-container *ngIf="!isSubscription;">
+        <ng-container *ngTemplateOutlet="showPeople; context: { $implicit: subscribers }"></ng-container> 
+      </ng-container>
+    </div> 
+  </div>
+</ion-content>
+
+<ng-template #searchByCompetance>
+  <app-select-with-search [items]="competances" [showSelect]="false">
+    <ng-template let-item #itemView>
+      <p class="competance-item" [routerLink]="['/main/people/search', item]">{{item}}</p>
+    </ng-template>
+  </app-select-with-search>
+</ng-template>
+
+<ng-template #showPeople let-people>
+  <div *ngFor="let item of people" class="margin-top">
+    <app-profile-preview [profile]="item" [routerLink]="['/main/profiles/profile', item.id]">
+    </app-profile-preview>
+  </div>
+</ng-template>

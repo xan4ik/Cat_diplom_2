@@ -1,0 +1,20 @@
+.full-screen{
+    height: 85%;
+}
+
+.center-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .error{
+        text-align: center;
+        
+        #error-text{
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
+}

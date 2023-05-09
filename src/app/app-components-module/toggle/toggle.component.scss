@@ -1,0 +1,30 @@
+.toggle-container{
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .button{
+        width: 49%;
+        height: 30px;
+
+        box-sizing: border-box;
+        border: 1px solid #7268DC;
+        border-radius: 10px;
+        background: transparent;
+
+        .text{
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 22px;
+        }
+    }
+
+    .selected{
+        background: linear-gradient(135deg, #6B65DE 0.55%, #E89DE7 99.42%);
+        color: black;
+    }
+}

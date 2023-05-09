@@ -1,0 +1,27 @@
+<div class="modal-content ion-padding">
+  <!-- <ion-toolbar>
+    <ion-searchbar class="text-left search" (ionInput)="searchbarInput($event)" placeholder="Поиск"></ion-searchbar>
+  </ion-toolbar> -->
+
+  <app-input-field-with-icon 
+      class="text-left search" 
+      placeholder="Поиск" 
+      source="/assets/input-icons/search.svg"
+      (onChanged)="searchbarInput($event)">
+  </app-input-field-with-icon>
+
+  <div *ngFor="let item of displayItems"
+        class="modal-button text-left"    
+        [ngClass]="{'selected' : showSelect && isSelectedItem(item)}"  
+        (click)="selectItem(item)"
+      >
+      <ng-container *ngTemplateOutlet="
+        itemView || defaultItemView;
+        context: { $implicit: item }">
+      </ng-container>
+  </div>
+</div>
+
+<ng-template #defaultItemView let-item> 
+    <span class="text">{{item}}</span> 
+</ng-template>

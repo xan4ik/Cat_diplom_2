@@ -1,0 +1,17 @@
+<div class="comment-container">
+  <ng-container *ngFor="let comment of comments.slice(0, max)">
+    <div class="commnet">
+      <div class="text">
+        <div class="header">
+          <span>{{getAuthorShortName(comment.author)}}</span>
+          <span>{{getData(comment.date)}}</span>
+        </div>
+        <hr class="under-line">
+        <p>{{comment.text}}</p>
+      </div>
+      <div class="author" [routerLink]="['/main/profiles/profile', comment.author.id]">
+        <img class="image" [src]="comment.author.imageSource">
+      </div>
+    </div>
+  </ng-container>
+</div>

@@ -1,0 +1,48 @@
+.commnet{
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .text{
+        background: rgba(139, 138, 148, 0.05);
+        padding: 10px;
+        border-radius: 10px;
+        width: 80%;
+        text-align: justify;
+        
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 22px;
+        color: #aaa9b3;
+
+        .header{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .under-line{
+            width: 100%;
+            padding: 0;
+            height: 0;
+            border: none;
+            border-top: 2px dashed #8B8A94;
+        }
+    }
+
+    .author{
+        width: 15%;
+        display: flex;
+
+        .image{
+            width: 100%;
+        }
+    }
+}

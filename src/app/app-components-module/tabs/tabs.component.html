@@ -1,0 +1,6 @@
+<div class="content">
+  <button *ngFor="let item of buttons" (click)="onItemSelect(item)" [routerLink]="item.routeLink">
+    <img [src]="item === lastActive ? item.activeImage : item.defaultImage">
+  </button>
+</div>
+

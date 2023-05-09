@@ -1,0 +1,133 @@
+.wrapper
+{
+    width: 95%;
+    margin: 10px auto;
+}
+
+.backPost
+{
+    padding: 20px 20px 20px 17px;
+    background: rgba(139, 138, 148, 0.05);
+    border: 1px solid rgba(139, 138, 148, 0.2);
+    border-radius: 10px;
+}
+
+.author
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tags
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.tag
+{
+    margin-right: 5px;
+}
+
+#name
+{
+    margin: 9px;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.text
+{
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+h2
+{
+    font-size: 22px;
+    color: #21C9AD;
+    margin: 7px 0;
+}
+
+.mainText
+{
+    font-size: 14px;
+    color: #ffffff;
+    margin: 3px 0;
+    white-space: pre-wrap;
+
+    padding: 5px; /* Поля вокруг текста */
+}
+
+.short {
+    overflow: hidden;
+}
+
+.moreDetailed
+{
+    font-size: 16px;
+    color: #7268DC;
+    margin: 3px 0;
+}
+
+#imgMain
+{
+    width: 100%;
+}
+
+.date
+{
+    color: rgba(139, 138, 148, 0.6);
+    font-size: 12px;
+    margin: 0 0 20px 0;
+}
+
+.icon
+{
+    width: 24px;
+    height: 24px;
+}
+
+.reaction
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.flexRow
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.num
+{
+    margin-left: 6px;
+}
+
+#first
+{
+    margin-right: 12px;
+}
+
+input{
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    margin-left: 10px;
+    font-size: 1rem;
+    background-color: #ffffff06;
+    border: 1px solid #bdbdbd00;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+#comment
+{
+    font-size: 14px;
+}

@@ -1,0 +1,8 @@
+<div class="comment-input-container">
+  <textarea class="input-field" placeholder="Введите комментарий" [(ngModel)]="commentText" (ngModelChange)="updateText($event)"></textarea>
+  <div class="button-container">
+    <button class="confirm-button" (click)="saveComment()">
+      <span class="button-text">Сохранить</span>
+    </button>
+  </div>
+<div>

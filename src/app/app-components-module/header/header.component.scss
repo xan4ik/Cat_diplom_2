@@ -1,0 +1,48 @@
+.header
+{
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.text
+{
+    width: 100%;
+    text-align: center;
+}
+
+.headerText
+{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 20px;
+    margin: 0 40px;
+
+    color: #7268DC;
+}
+
+.icon
+{
+    width: 24px;
+    height: 24px;
+    position: absolute;
+}
+
+#start
+{
+    left: 20px;
+}
+
+#end
+{
+    right: 20px;
+}
+
+.line
+{
+    background-color: #7268DC;
+    height: 1px;
+    width: 90%;
+    margin: auto;
+}

@@ -1,0 +1,10 @@
+<div class="text-container" 
+[ngClass]="showCross ? 'text-left' : 'text-center'">
+  <span class="text">{{value}}</span>
+ 
+  <img 
+    *ngIf="showCross" 
+    class="icon"
+    src="/assets/input-icons/cross.svg"
+    (click)="crossClick()"/>
+<div>

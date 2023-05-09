@@ -1,0 +1,12 @@
+<div class="field-container">
+  <img *ngIf="source"
+    class="icon" 
+    [src]="source"/>
+  
+  <input [type]="type" [placeholder]="placeholder" [(ngModel)]="inputValue" (ngModelChange)="onValueChange($event)"/>
+ 
+  <img *ngIf="initType == 'password'"
+    class = "icon"
+    src="/assets/input-icons/eye.svg"
+    (click)="onShowPassword()"/>
+</div>
