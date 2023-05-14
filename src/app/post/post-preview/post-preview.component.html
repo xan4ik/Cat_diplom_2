@@ -1,6 +1,6 @@
 <div class="wrapper backPost">
   <div class="author">
-    <div class="author" [routerLink]="['profiles/profile/', post.author.id]">
+    <div class="author" [routerLink]="['/main/profiles/profile/', post.author.id]">
       <app-image-wrapper [source]="post.author.imageSource" [size]="SIZES.Small">
       </app-image-wrapper>
       <p id="name" class="text">{{ getAuthorName(post.author) }}</p>

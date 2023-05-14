@@ -439,11 +439,17 @@ export class ProfileService {
 
   subsribeCurrentUserTo(profileID: number): void{
     const currentUser = this.getProfileById(this.getCurrentUserId())!;
+    const other = this.getProfileById(profileID)!;
+
+    other.subscribersId.push(currentUser.id);
     currentUser.subscriptionsId.push(profileID);
   }
 
   usSubsribeCurrentUserTo(profileID: number){
     const currentUser = this.getProfileById(this.getCurrentUserId())!;
+    const other = this.getProfileById(profileID)!;
+
+    other.subscribersId.splice(other.subscribersId.indexOf(currentUser.id), 1);
     currentUser.subscriptionsId.splice(currentUser.subscriptionsId.indexOf(profileID), 1);
   }
 
