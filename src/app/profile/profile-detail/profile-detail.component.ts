@@ -35,7 +35,7 @@ export class ProfileDetailComponent  implements OnInit {
   }
 
   goToSettings(){
-    this.router.navigate([`/main/profiles/profile/${this.profileID}/settings`]);
+    this.router.navigate([`/main/profiles/settings`]);
   }
 
   getShortDateString(date: Date | undefined, returnEmptyOnUndefined: boolean = true){

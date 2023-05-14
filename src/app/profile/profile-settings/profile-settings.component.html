@@ -1,3 +1,76 @@
-<p>
-  profile-settings works!
-</p>
+<app-header name="Настройки" [isHidden]="true"></app-header>
+
+<ng-container *ngIf="profile; else notFound">
+  <ion-content class="main ion-padding">
+    <div class="image-container margin-top-16">
+      <img [src]="profile.imageSource" />
+    </div>
+    
+    <div class="name margin-top-16">
+      <span>{{getFullName()}}</span>
+      <img src="/assets/input-icons/edit.svg">
+    </div>
+
+    <div class="competance-container">
+      <div  class="competance-item margin-top-16" *ngFor="let item of profile.competances">
+        <app-text-with-border class="text" [value]="item">
+        </app-text-with-border>
+        <img src="/assets/input-icons/delete.svg" />
+      </div>
+      <div class="competance-button margin-top-16">
+        <span class="text">+ Добавить компетенцию</span>
+      </div>
+    </div>
+
+    <div class="city-container margin-top-16">
+      <div class="city-title">
+        <span class="text">Город</span>
+      </div>
+      <div class="city-button-container">
+        <button id="select-city" class="city-button text-left margin-top-16" >
+          <span class="text">{{profile.locale}}</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="line margin-top-16"></div>
+
+    <div class="button-container margin-top-16">
+      <ng-container *ngFor="let item of buttons">
+        <div class="button margin-top-16" (click)="item.action()">
+          <app-image-button [source]="item.image">
+          </app-image-button>
+          <span class="text">{{item.label}}</span>
+        </div>
+      </ng-container>
+    </div>
+
+  </ion-content>
+</ng-container>
+
+<ng-template #notFound>
+  <div class="full-screen center-content">
+    <div class="error">
+      <span class="error-text text">Пользователь не найден</span>
+    </div>
+  </div>
+</ng-template>
+
+
+<ion-modal trigger="select-city" #cityModal>
+  <ng-template>
+    <app-header name = "Выберите город" 
+      imgEnd="/assets/input-icons/ok.svg"
+      (leftClick)="cancelCity(); cityModal.dismiss();"
+      (rightClick)="confirmCity(); cityModal.dismiss();">
+    </app-header>
+
+    <ion-content>
+      <app-select-with-search [items]="cities" (valueChange)="cityChange($event)">
+        <ng-template #itemView let-item>
+          <p>{{item}}</p>
+        </ng-template>
+      </app-select-with-search>
+    </ion-content>
+  </ng-template>
+</ion-modal> 

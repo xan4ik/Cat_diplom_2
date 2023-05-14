@@ -1,0 +1,86 @@
+.margin-top-16{
+    margin-top: 16px;
+}
+
+.text{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: #FFFFFF;
+}
+
+.main{
+    height: 85%;
+
+    .city-container{
+        .city-button-container{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            .city-button{
+                width: 90%;
+                border: 1px solid #7268DC;
+                height: 50px;
+                border-radius: 10px;
+                background: transparent;
+                text-align: left;
+            }
+        }
+    }
+    .line{
+        background-color: #7268DC;
+        height: 1px;
+        width: 100%;
+    }
+
+    .image-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        img{
+            width: 150px;
+            height: 150px;
+
+            border-radius: 50%;
+        }
+    }
+
+    .name{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .competance-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .competance-item{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .text{
+                width: 85%;
+            }
+        }
+    }
+
+    .button-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .button{
+            display: flex;
+            flex-direction: row;            
+            justify-content: flex-start;
+            align-items: center;
+        }
+    }
+
+}

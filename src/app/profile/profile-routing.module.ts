@@ -14,7 +14,7 @@ const routes: Routes = [
       component: ProfileDetailComponent,
     },
     {
-      path: 'profile/:id/settings',
+      path: 'settings',
       component: ProfileSettingsComponent,
     },
 ];

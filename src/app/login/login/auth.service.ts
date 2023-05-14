@@ -5,12 +5,6 @@ import { Profile } from 'src/app/profile/profile';
 @Injectable({providedIn: 'root'})
 
 export class AuthService{
-   
-    // public users: User[] = [new User(0, "Рубов", "Владимир", "Ильич", "/assets/input-icons/thisAkk.svg", "8(995)635-48-12", 
-    //                                 "rubovVI@gmail.com", "id_rubovVI", "@rubovVI", "Москва", "rubov", "1234"),
-    //                         new User(1, "Котова", "Мария", "Николаевна", "/assets/input-icons/kotova.svg", "8(955)685-98-46", 
-    //                                 "kotova@gmail.com", "id_kotova", "@kotova", "Москва", "kotova", "1234")];
-
    constructor(private profileService: ProfileService){
    }
 
