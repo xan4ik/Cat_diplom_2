@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Profile } from '../profile';
 import { ProfileService } from '../../Services/ProfileService';
+import { ImageSize } from 'src/app/app-components-module/image-wrapper/image-wrapper.component';
 
 @Component({
   selector: 'app-profile-preview',
@@ -10,7 +11,7 @@ import { ProfileService } from '../../Services/ProfileService';
 export class ProfilePreviewComponent  implements OnInit {
 
   @Input() profile!: Profile;
-  @Input() small: boolean = true;
+  @Input() size: ImageSize = ImageSize.Default;
 
   ngOnInit() {  }
 

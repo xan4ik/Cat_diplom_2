@@ -7,5 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ImageWrapperComponent {
   @Input() source!: string;
-  @Input() small: boolean = true; 
+  @Input() size: ImageSize = ImageSize.Default; 
 }
+
+export enum ImageSize { 
+  Small = "small", 
+  Default = "default",
+  Big = "big",  
+};

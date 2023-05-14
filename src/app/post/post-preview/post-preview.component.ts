@@ -3,6 +3,7 @@ import { Post, PostView } from '../Post';
 import { Profile } from 'src/app/profile/profile';
 import { PostProveider } from '../../Services/PostProveider';
 import { CommentService } from 'src/app/Services/CommentService';
+import { ImageSize } from 'src/app/app-components-module/image-wrapper/image-wrapper.component';
 
 
 @Component({
@@ -14,6 +15,8 @@ export class PostPreviewComponent{
 
   @Input() post!: PostView;
   @Input() short: boolean;
+
+  SIZES = ImageSize;
 
   constructor(private commentService: CommentService){
     this.short = true;

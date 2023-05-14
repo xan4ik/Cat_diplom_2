@@ -1,7 +1,9 @@
 <div class="wrapper backPost">
   <div class="author">
     <div class="author">
-      <img [src]="post.author.imageSource" alt="kotova">
+      <app-image-wrapper [source]="post.author.imageSource" [size]="SIZES.Small">
+      </app-image-wrapper>
+      <!-- <img [src]="post.author.imageSource" alt="kotova"> -->
       <p id="name" class="text">{{ getAuthorName(post.author) }}</p>
     </div>
     <img src="/assets/input-icons/threePoint.svg" alt="">

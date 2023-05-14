@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Profile, ProfileWork } from '../profile';
 import { ProfileService } from '../../Services/ProfileService';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ImageSize } from 'src/app/app-components-module/image-wrapper/image-wrapper.component';
+
+
 
 @Component({
   selector: 'app-profile-detail',
@@ -13,6 +16,8 @@ export class ProfileDetailComponent  implements OnInit {
   private profileID: number;
   profile : Profile | undefined;
   isSelfProfile: boolean;
+
+  SIZES = ImageSize;
 
   constructor(
     private service: ProfileService, 

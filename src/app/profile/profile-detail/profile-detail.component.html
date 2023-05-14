@@ -8,7 +8,7 @@
 <ng-container *ngIf="profile; else notFound">
   <ion-content class="full-screen ion-padding">
     <div class="profile-card">
-      <app-profile-preview [profile]="profile" [small]="false">
+      <app-profile-preview [profile]="profile" [size]="SIZES.Big">
       </app-profile-preview>
       <button (click)="solvoSubscription()">Разрулить</button>
     </div>
