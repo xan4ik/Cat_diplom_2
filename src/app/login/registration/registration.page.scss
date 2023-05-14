@@ -49,8 +49,7 @@
             .text{
                 font-size: 1rem;
                 color: rgba(255, 255, 255, 0.4);
-            }
-            
+            }  
         }
     }
     
@@ -83,6 +82,10 @@
 
     .competence-list{
         width: 90%;
+
+        .competence-item{
+            margin-top: 12px;
+        }
     }
 }
 

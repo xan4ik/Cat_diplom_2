@@ -314,8 +314,6 @@ export class ProfileService {
   },
   ];
  
- 
- 
   getTestProfle(): Profile {
     const profile = {
       id: 0,
@@ -453,5 +451,13 @@ export class ProfileService {
   private getProfilesByIds(ids: number[]){
     return this.getAllProfiles().filter(x=> ids.indexOf(x.id) > -1);
   } 
+
+  getPeopleByName(value: string): Profile[] {
+    return this.getAllProfiles().filter(x =>{
+      const fullName = `${x.name.firstName}${x.name.secondName}${x.name.fathersName}`.toLocaleLowerCase();
+      return fullName.indexOf(value) > -1;
+    })
+  }
+
 
 }

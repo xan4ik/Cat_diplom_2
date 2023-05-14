@@ -1,12 +1,11 @@
 <div class="wrapper backPost">
   <div class="author">
-    <div class="author">
+    <div class="author" [routerLink]="['profiles/profile/', post.author.id]">
       <app-image-wrapper [source]="post.author.imageSource" [size]="SIZES.Small">
       </app-image-wrapper>
-      <!-- <img [src]="post.author.imageSource" alt="kotova"> -->
       <p id="name" class="text">{{ getAuthorName(post.author) }}</p>
     </div>
-    <img src="/assets/input-icons/threePoint.svg" alt="">
+    <img src="/assets/input-icons/threePoint.svg">
   </div>
 
   <div class="text">
@@ -25,49 +24,61 @@
   </div>
 
   <p class="date text">20 часов назад</p>
-  <img id="imgMain" [src]="post.image" alt="girlInBoat">
+  <img id="imgMain" [src]="post.image" (click)="openImageModal()">
 
   <div class="reaction">
     <div class="flexRow">
       <div class="flexRow" id="first">
-        <img class="icon" src="/assets/input-icons/like.svg" alt="like">
+        <img class="icon" src="/assets/input-icons/like.svg">
         <p class="num">2.4k</p>
       </div>
       <div class="flexRow">
-        <img class="icon" src="/assets/input-icons/commentIcon.svg" alt="commentIcon">
-        <p class="num">78</p>
+        <img class="icon" src="/assets/input-icons/commentIcon.svg" (click)="openCommentModal()">
+        <p class="num">{{getCommentsCount()}}</p>
       </div>
     </div>
     <div class="flexRow">
-      <img class="icon" src="/assets/input-icons/openEye.svg" alt="openEye">
+      <img class="icon" src="/assets/input-icons/openEye.svg">
       <p class="num">10.3k</p>
     </div>
   </div>
 
   <div *ngIf="!short" class="flexRow">
-    <img src="/assets/input-icons/thisAkk.svg" alt="thisAkk">
-    <input id="add-comment" type="text" placeholder="Напишите комментарий...">
+    <img src="/assets/input-icons/thisAkk.svg">
+    <input type="text" placeholder="Напишите комментарий..." (click)="openCommentModal()">
   </div>
 
   <app-comments-list *ngIf="!short && post.comments" [comments]="post.comments" [max]="2">
   </app-comments-list>
 </div>
 
-<ion-modal #modal
-  *ngIf="!short" 
-  trigger="add-comment" 
+<ion-modal #commentModal
+  [isOpen]="openComments"
   [initialBreakpoint]="0.5" 
   [breakpoints]="[0, 0.25, 0.5, 0.75]"
 >
   <ng-template>
     <app-header name="Комментарии" 
-      (leftClick)="modal.dismiss();">
+      (leftClick)="commentModal.dismiss();">
     </app-header>
 
     <ion-content class="ion-padding">
       <app-comment-input [postId]="post.id" (onSave)="refreshComments()"></app-comment-input>
       <app-comments-list *ngIf="post.comments" [comments]="post.comments">
       </app-comments-list>
+    </ion-content>
+  </ng-template>
+</ion-modal> 
+
+
+<ion-modal #imageModal [isOpen]="openImage">
+  <ng-template>
+    <app-header [name]="post.namePost" 
+      (leftClick)="imageModal.dismiss();">
+    </app-header>
+
+    <ion-content class="ion-padding">
+      <img [src]="post.image" alt="girlInBoat">
     </ion-content>
   </ng-template>
 </ion-modal> 

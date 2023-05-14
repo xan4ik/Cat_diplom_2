@@ -47,9 +47,11 @@
     </div>
 
     <div class="competence-list" *ngIf="registrationModel.competances.length">
-      <ng-container *ngFor="let item of registrationModel.competances">
-        <app-text-with-border [value]="item" [showCross]="true" (delete)="removeCompetance(item)">
-        </app-text-with-border>
+      <ng-container *ngFor="let item of registrationModel.competances; let i = index">
+        <div [ngClass]="{'competence-item' : i != 0}">
+          <app-text-with-border [value]="item" [showCross]="true" (delete)="removeCompetance(item)">
+          </app-text-with-border>
+        </div>
       </ng-container>
     </div>
 

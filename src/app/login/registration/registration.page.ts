@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ISelectItem } from '../../app-components-module/select-with-search/select-with-search.component';
 import { CitiesService } from '../../Services/CitiesService';
 import { CompetanceService } from 'src/app/Services/CompetanceService';
 import { RegistrationModel } from 'src/app/profile/profile';

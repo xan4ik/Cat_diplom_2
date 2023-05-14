@@ -1,16 +1,17 @@
 <ng-template #temp>
   <ion-content>
-    <p>"Пользователи не найдены"</p>
+    <div class="error-text">
+      <p>Пользователи c указанным тегом не найдены</p>
+    </div>
   </ion-content>
 </ng-template>
 
-<ion-content>
-  <ng-container *ngIf="people.length; else temp">
+<app-header [name]="competance" [isHidden]="true"></app-header>
+<ion-content *ngIf="people.length; else temp">
     <app-select-with-search [items]="people" [searchFunc]="peopleSearchFunc" [showSelect]="false">
       <ng-template let-item #itemView>
         <app-profile-preview [profile]="item" [routerLink]="['/main/profiles/profile', item.id]">
         </app-profile-preview>
       </ng-template>
     </app-select-with-search>
-</ng-container>
 </ion-content>

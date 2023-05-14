@@ -8,6 +8,12 @@
     (onChanged)="searchbarInput($event)">
   </app-input-field-with-icon>
 
+  <ng-container *ngIf="globalSearchString; else default">
+    <ng-container *ngTemplateOutlet="showPeople; context: { $implicit: peopleGlobal }"></ng-container>
+  </ng-container>
+</ion-content>
+
+<ng-template #default>
   <div class="selector-search margin-top">
     <app-toggle
       left="Люди рядом"
@@ -39,7 +45,8 @@
       </ng-container>
     </div> 
   </div>
-</ion-content>
+</ng-template>
+
 
 <ng-template #searchByCompetance>
   <app-select-with-search [items]="competances" [showSelect]="false">

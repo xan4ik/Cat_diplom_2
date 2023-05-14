@@ -61,4 +61,10 @@ export class CommentService {
 
     return undefined;
   }
+
+  getCommentsCountByPostId(id: number) : number{
+    const comments = this.getCommntsByPostId(id);
+    return comments ? comments.length : 0;
+  }
+
 }

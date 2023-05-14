@@ -16,6 +16,8 @@ export class GlobalSearchComponent  implements OnInit {
   peopleNear: Profile[];
   subscribers: Profile[];
   subscriptions: Profile[];
+  peopleGlobal: Profile[];
+  globalSearchString: string;
 
   constructor(
     private competanceService: CompetanceService,
@@ -25,8 +27,10 @@ export class GlobalSearchComponent  implements OnInit {
     this.isSubscription = true;
     this.competances = [];
     this.peopleNear = [];
-    this.subscribers =[];
-    this.subscriptions =[];
+    this.subscribers = [];
+    this.subscriptions = [];
+    this.peopleGlobal = [];
+    this.globalSearchString = '';
   }
 
   ngOnInit() {
@@ -45,7 +49,10 @@ export class GlobalSearchComponent  implements OnInit {
   }
 
   searchbarInput(value: string){
-    console.log(value);
+    this.globalSearchString = value;
+    if(this.globalSearchString){
+      this.peopleGlobal = this.profileService.getPeopleByName(value);
+    }
   }
 
 }
