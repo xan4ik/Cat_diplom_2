@@ -10,28 +10,9 @@ import { ProfileService } from '../../Services/ProfileService';
 export class ProfilePreviewComponent  implements OnInit {
 
   @Input() profile!: Profile;
+  @Input() small: boolean = true;
 
-  ngOnInit() {
-    // this.profile = {
-    //   id:0,
-    //   name:{
-    //     firstName: "Мария",
-    //     secondName: "Котова",
-    //     fathersName: "Николаева"
-    //   },
-    //   phone: "8 (964)273-18-34",
-    //   email: "catMary98@gmail.com",
-    //   imageSource: "/assets/input-icons/kotova.svg",
-    //   locale: "Дубна",
-    //   links: [
-    //     {source: "VK", value: "id_catMary"},
-    //     {source: "Telegram", value: "@catMary"}
-    //   ],
-    //   portfolio: [],
-    //   works: [],
-    //   competances: ["python", "Котоврединие", "Аналитика больших данных"] // "Аналитика больших данных"
-    // }
-  }
+  ngOnInit() {  }
 
   getFullName() : string{
     const name = this.profile.name;

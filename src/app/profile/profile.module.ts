@@ -6,6 +6,7 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileService } from '../Services/ProfileService';
 import { IonicModule } from '@ionic/angular';
 import { ProfileDetailComponent } from './profile-detail/profile-detail.component';
+import { ProfileSettingsComponent } from './profile-settings/profile-settings.component';
 
 
 
@@ -16,7 +17,7 @@ import { ProfileDetailComponent } from './profile-detail/profile-detail.componen
     ProfileRoutingModule,
     IonicModule
   ],
-  declarations: [ProfilePreviewComponent, ProfileDetailComponent],
+  declarations: [ProfilePreviewComponent, ProfileDetailComponent, ProfileSettingsComponent],
   exports: [ProfilePreviewComponent]
 })
 export class ProfileModule { }

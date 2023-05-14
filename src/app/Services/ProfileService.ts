@@ -142,8 +142,9 @@ export class ProfileService {
 
 
   createNewIntance() : RegistrationModel{
+    const newProfileId = Math.max(...this.profiles.map(x => x.id)) + 1;
     const newProfile : RegistrationModel={
-      id: Math.max(...this.profiles.map(x => x.id)),
+      id: newProfileId,
       login: '',
       password: '',
       name: {

@@ -24,6 +24,7 @@ export class PostProveider {
         \nИз десяти подземных родников в озеро поступают радоновые воды, содержащие магний, гидрокарбонаты, соли калия и кальция. Источники, питающие водоём, настолько мощные, что вода в Хевизе обновляется каждые 3 дня.
         \nЛетом озеро нагревается до +38 °C, а зимой оно не холоднее +22 °C, благодаря чему водные процедуры доступны круглый год.
         \nЦелебные испарения водоёма и чистейший воздух заповедного леса, окружающего Хевиз, создают на курорте благотворный климат.`,
+        image: "/assets/input-icons/girlInBoat.svg",
         tagsArray: ["#travel", "#lake"]
       },
       {
@@ -33,6 +34,7 @@ export class PostProveider {
         textPost: `Readonly-классы
         Поля readonly сделали еще до версии 8.2. Раньше писать в них код и читать его можно было только в конструкторе. А теперь для этого не нужно помечать каждое поле — достаточно отметить весь класс как readonly.
         Но у фичи есть особенности:`,
+        image: "/assets/input-icons/girlInBoat.svg",
         tagsArray: ["#php", "#it", "#web", "#programming"]
       }
     ];
@@ -68,6 +70,7 @@ export class PostProveider {
         namePost: item.namePost,
         textPost: item.textPost,
         tagsArray: item.tagsArray,
+        image: item.image,
         author: profile!,
         comments: comments
       }

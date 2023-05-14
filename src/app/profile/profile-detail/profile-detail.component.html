@@ -1,9 +1,14 @@
-<app-header name="Заменить" [isHidden]="true"></app-header>
+<app-header 
+  name="Профиль"
+  [isHidden]="true"
+  [imgEnd]="isSelfProfile ? '/assets/input-icons/gear.svg' : ''"
+  (rightClick)="goToSettings()">
+</app-header>
 
 <ng-container *ngIf="profile; else notFound">
   <ion-content class="full-screen ion-padding">
     <div class="profile-card">
-      <app-profile-preview [profile]="profile">
+      <app-profile-preview [profile]="profile" [small]="false">
       </app-profile-preview>
       <button (click)="solvoSubscription()">Разрулить</button>
     </div>

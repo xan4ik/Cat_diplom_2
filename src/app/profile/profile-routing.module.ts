@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfilePreviewComponent } from './profile-preview/profile-preview.component';
 import { ProfileDetailComponent } from './profile-detail/profile-detail.component';
+import { ProfileSettingsComponent } from './profile-settings/profile-settings.component';
 
 const routes: Routes = [
     {
@@ -11,6 +12,10 @@ const routes: Routes = [
     {
       path: 'profile/:id',
       component: ProfileDetailComponent,
+    },
+    {
+      path: 'profile/:id/settings',
+      component: ProfileSettingsComponent,
     },
 ];
 

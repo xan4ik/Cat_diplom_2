@@ -11,6 +11,7 @@ import { IonicModule } from '@ionic/angular';
 import { TextWithBorderComponent } from './text-with-border/text-with-border.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { ToggleComponent } from './toggle/toggle.component'
+import { ImageWrapperComponent } from './image-wrapper/image-wrapper.component';
 
 @NgModule({
   declarations: [InputFieldWithIconComponent, 
@@ -20,7 +21,8 @@ import { ToggleComponent } from './toggle/toggle.component'
     SelectWithSearchComponent,
     TextWithBorderComponent,
     TabsComponent,
-    ToggleComponent],
+    ToggleComponent, 
+    ImageWrapperComponent],
   imports: [ CommonModule, FormsModule, RouterModule, IonicModule],
 
   exports: [InputFieldWithIconComponent,
@@ -30,7 +32,8 @@ import { ToggleComponent } from './toggle/toggle.component'
     SelectWithSearchComponent, 
     TextWithBorderComponent,
     TabsComponent,
-    ToggleComponent
+    ToggleComponent,
+    ImageWrapperComponent
   ]
 })
 export class AppComponentsModuleModule { }

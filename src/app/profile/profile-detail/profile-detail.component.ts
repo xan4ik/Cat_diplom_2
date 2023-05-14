@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Profile, ProfileWork } from '../profile';
 import { ProfileService } from '../../Services/ProfileService';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-detail',
@@ -16,7 +16,8 @@ export class ProfileDetailComponent  implements OnInit {
 
   constructor(
     private service: ProfileService, 
-    private route: ActivatedRoute) 
+    private route: ActivatedRoute,
+    private router: Router) 
   {
     const fromRoute = route.snapshot.params["id"];
     if(fromRoute){
@@ -31,6 +32,10 @@ export class ProfileDetailComponent  implements OnInit {
 
   ngOnInit() {
     this.profile = this.service.getProfileById(this.profileID);
+  }
+
+  goToSettings(){
+    this.router.navigate([`/main/profiles/profile/${this.profileID}/settings`]);
   }
 
   getShortDateString(date: Date | undefined, returnEmptyOnUndefined: boolean = true){

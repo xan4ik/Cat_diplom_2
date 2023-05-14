@@ -1,7 +1,7 @@
 <div class="preview">
-  <div class="image-container">
-    <img [src]="profile.imageSource">
-  </div>
+  <app-image-wrapper [source]="profile.imageSource" [small]="small">
+  </app-image-wrapper>
+
   <div class="data-container">
     <span class="name">{{getFullName()}}</span>
     <ng-container *ngFor="let item of profile.competances">

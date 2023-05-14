@@ -5,6 +5,7 @@ import { Profile } from "../profile/profile";
 
 export interface Post {
   id: number;
+  image: string;
   authorId: number;
   namePost: string;
   textPost: string;
