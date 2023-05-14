@@ -9,9 +9,11 @@
         <hr class="under-line">
         <p>{{comment.text}}</p>
       </div>
-      <div class="author" [routerLink]="['/main/profiles/profile', comment.author.id]">
-        <img class="image" [src]="comment.author.imageSource">
-      </div>
+      <app-image-wrapper 
+        [source]="comment.author.imageSource" 
+        [size]="imageSize"
+        [routerLink]="['/main/profiles/profile', comment.author.id]">
+      </app-image-wrapper>
     </div>
   </ng-container>
 </div>

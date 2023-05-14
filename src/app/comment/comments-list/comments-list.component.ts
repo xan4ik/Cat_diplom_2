@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommentView } from '../Comment';
 import { Profile } from 'src/app/profile/profile';
+import { ImageSize } from 'src/app/app-components-module/image-wrapper/image-wrapper.component';
 
 @Component({
   selector: 'app-comments-list',
@@ -11,6 +12,7 @@ export class CommentsListComponent implements OnInit {
 
   @Input() comments: CommentView[];
   @Input() max: number | undefined;
+  imageSize = ImageSize.Small;
 
   commentToDisplay: CommentView[];
 
