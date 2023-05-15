@@ -61,7 +61,15 @@ export class ProfileDetailComponent  implements OnInit {
     return `${from} - ${to}`;
   }
 
-  solvoSubscription(){
+  isSubscribtion(){
+    if(!this.profile){
+      return;
+    }
+    
+    return this.service.isCurrentUserSubsriberOf(this.profile.id);
+  }
+
+  solveSubscription(){
     if(!this.profile){
       return;
     }

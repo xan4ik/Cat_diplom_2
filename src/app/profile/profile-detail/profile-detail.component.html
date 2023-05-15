@@ -10,7 +10,16 @@
     <div class="profile-card">
       <app-profile-preview [profile]="profile" [size]="SIZES.Big">
       </app-profile-preview>
-      <button (click)="solvoSubscription()">Разрулить</button>
+
+      <ng-container *ngIf="!isSelfProfile">
+        <div *ngIf="isSubscribtion(); else subscribe" 
+          class="subscribe-container"
+          (click)="solveSubscription()">
+
+          <img src="/assets/input-icons/unsubscribe.svg"/>
+          <span>Отписаться</span>
+        </div>
+      </ng-container>
     </div>
     <div class="data-block">
       <h2 class="data-header">Контактная информация</h2>
@@ -51,5 +60,13 @@
     <div class="error">
       <span class="error-text">Пользователь не найден</span>
     </div>
+  </div>
+</ng-template>
+
+
+<ng-template #subscribe>
+  <div class="subscribe-container" (click)="solveSubscription()">
+    <img src="/assets/input-icons/subscribe.svg"/>
+    <span>Подписаться</span>
   </div>
 </ng-template>
