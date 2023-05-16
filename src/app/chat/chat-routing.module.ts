@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
-import { Router, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { ChatListComponent } from './chat-list/chat-list.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   component: ProfileDetailComponent,
-  // },
+  {
+    path: '',
+    component: ChatListComponent,
+  },
+
 ];
 
 @NgModule({

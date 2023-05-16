@@ -1,4 +1,4 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, Injectable, Input, OnInit } from '@angular/core';
 import { ProfileService } from 'src/app/Services/ProfileService';
 import { Profile } from 'src/app/profile/profile';
 
@@ -18,19 +18,23 @@ export class ChatService{
   private chats: Chat[] = [
     {
       ID: 0,
-      membersID: [0, 1]
+      membersID: [0, 1],
+      image: undefined
     },
     {
       ID: 2,
-      membersID: [2, 3]
+      membersID: [2, 3],
+      image: undefined
     },
     {
       ID: 3,
-      membersID: [0, 1, 2, 3]
+      membersID: [0, 1, 2, 3],
+      image: undefined
     },
     {
       ID: 4,
-      membersID: [0, 4, 5]
+      membersID: [0, 4, 5],
+      image: undefined
     },
   ];
 
@@ -56,8 +60,11 @@ export class ChatService{
                 return messageView;
               });
 
+      const chatImage = x.image;
+
       const chatView : ChatView ={
         ID: x.ID,
+        image: x.image,
         membersID: x.membersID,
         profiles: chatMembers,
         messages : messages
@@ -66,11 +73,17 @@ export class ChatService{
       return chatView;
     });
   }
+
+  public getUserChats(){
+    const currentUserID = this.profileService.getCurrentUserId();
+    return this.getAllChats().filter(x => x.membersID.indexOf(currentUserID) > -1);
+  }
 }
 
 export interface Chat{
-  ID: number
+  ID: number;
   membersID: number[];
+  image: string | undefined;
 }
 
 export interface ChatView extends Chat{
@@ -98,6 +111,8 @@ export interface MessageView extends Message {
   styleUrls: ['./chat-preview.component.scss'],
 })
 export class ChatPreviewComponent  implements OnInit {
+
+  @Input() chat!: ChatView;
 
   constructor() { }
 

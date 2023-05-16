@@ -52,6 +52,10 @@ export class PostPreviewComponent implements OnDestroy{
     this.openComments = true;
   }
 
+  closeCommentModal(){
+    this.openComments = false;
+  }
+
   openImageModal(){
     this.openImage = true
   }
