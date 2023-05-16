@@ -19,22 +19,26 @@ export class ChatService{
     {
       ID: 0,
       membersID: [0, 1],
-      image: undefined
+      image: undefined,
+      name : undefined
     },
     {
       ID: 2,
       membersID: [2, 3],
-      image: undefined
+      image: undefined,
+      name : undefined
     },
     {
       ID: 3,
       membersID: [0, 1, 2, 3],
-      image: undefined
+      image: undefined,
+      name : "Груповой чат 2"
     },
     {
       ID: 4,
       membersID: [0, 4, 5],
-      image: undefined
+      image: undefined,
+      name : "Груповой чат 1"
     },
   ];
 
@@ -60,11 +64,16 @@ export class ChatService{
                 return messageView;
               });
 
-      const chatImage = x.image;
+      const currentUserID = this.profileService.getCurrentUserId();
+      const firstChatUser = chatMembers.find(x => x.id != currentUserID);
+
+      const chatName =  x.membersID.length > 2 ? x.name : `${firstChatUser?.name.secondName} ${firstChatUser?.name.firstName} ${firstChatUser?.name.fathersName[0]}.`
+      const chatImage = x.membersID.length > 2 ? x.image : firstChatUser?.imageSource;
 
       const chatView : ChatView ={
         ID: x.ID,
-        image: x.image,
+        image: chatImage,
+        name: chatName,
         membersID: x.membersID,
         profiles: chatMembers,
         messages : messages
@@ -84,11 +93,12 @@ export interface Chat{
   ID: number;
   membersID: number[];
   image: string | undefined;
+  name: string | undefined;
 }
 
 export interface ChatView extends Chat{
   profiles: Profile[];
-  messages: MessageView[];
+  messages: MessageView[];  
 }
 
 export interface Message{
