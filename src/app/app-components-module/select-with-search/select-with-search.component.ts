@@ -8,11 +8,11 @@ import { Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateR
 
 export class SelectWithSearchComponent implements OnInit{
 
-  @Output() valueChange: EventEmitter<any[]> = new EventEmitter<any[]>();
-  @Input() items: any[] = [];
-  @Input() multiple: boolean = false;
-  @Input() maxSelectionLength: number = 3;
-  @Input() showSelect : boolean = true;
+  @Output() valueChange: EventEmitter<any[]>;
+  @Input() items: any[];
+  @Input() multiple: boolean;
+  @Input() maxSelectionLength: number;
+  @Input() showSelect : boolean;
   @Input() searchFunc: ((items: any[], filter: string) => any[])
 
   @ContentChild('itemView', { static: true }) itemView!: TemplateRef<any> | undefined;
@@ -21,6 +21,12 @@ export class SelectWithSearchComponent implements OnInit{
   selectedItems: any[] = [];
 
   constructor(){
+    this.valueChange = new EventEmitter<any[]>();
+    this.maxSelectionLength = 3;
+    this.showSelect = true;
+    this.multiple = false;
+    this.items = [];
+
     this.searchFunc = (items, filter) => {
       const values = items as string[];
       return values.filter(item => {
