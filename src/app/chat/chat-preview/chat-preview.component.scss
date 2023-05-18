@@ -1,0 +1,63 @@
+$image-container-width: 20%;
+$contant-container-width: 50%;
+
+.chat-container{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    height: 75px;
+
+    .image-container{
+        width: $image-container-width;
+        height: 100%;
+    }
+
+    .dot-container{
+        height: 100%;
+        width: calc(100% - $contant-container-width - $image-container-width - 20px);
+
+        margin-left: 10px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .dot{
+            width: 10px;
+            height: 10px;
+        }
+    }
+
+
+    .content-container{
+        display: flex;
+        flex-direction: column;
+
+        text-align: justify;
+        margin-left: 10px;
+        
+        width: $contant-container-width;
+        height: 100%;
+
+
+        .chat-title{
+            font-style: normal;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 22px;
+            color: #FFFFFF;
+        }
+
+        .chat-message{
+            margin-top: 5px;
+
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 22px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+    }
+}
+

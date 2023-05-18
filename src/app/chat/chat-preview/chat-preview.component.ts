@@ -7,9 +7,9 @@ import { Profile } from 'src/app/profile/profile';
 export class ChatService{
   private messages: Message[] = [
     {
-      chatID: 0,
+      chatID: 2,
       profileID: 0,
-      message: "привет",
+      message: "Привет, можешь помочь со встраиванием нейронки а то как-то не работает как хочется, а хотелось бы чтобы работало(",
       date: new Date()
     }
   ];
@@ -31,13 +31,13 @@ export class ChatService{
     {
       ID: 3,
       membersID: [0, 1, 2, 3],
-      image: undefined,
+      image: "/assets/chatImg/group-chat2.svg",
       name : "Груповой чат 2"
     },
     {
       ID: 4,
       membersID: [0, 4, 5],
-      image: undefined,
+      image: "/assets/chatImg/group-chat1.svg",
       name : "Груповой чат 1"
     },
   ];
@@ -113,19 +113,38 @@ export interface MessageView extends Message {
 }
 
 
-
-
 @Component({
   selector: 'app-chat-preview',
   templateUrl: './chat-preview.component.html',
   styleUrls: ['./chat-preview.component.scss'],
 })
 export class ChatPreviewComponent  implements OnInit {
+  static maxMessageLength = 40; 
+
 
   @Input() chat!: ChatView;
+  lastMessage: string;
 
-  constructor() { }
+  constructor() { 
+    this.lastMessage = "";
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if(this.chat.messages.length){
+      this.lastMessage = this.chat.messages.sort((a, b) => {
+        return b.date.getTime() - a.date.getTime();
+      })[0].message;
+    }
+    else{
+      this.lastMessage = "Сообщение нет";
+    }
+  }
+
+  getMessage(value: string){
+    if(value.length < ChatPreviewComponent.maxMessageLength){
+      return value;
+    }
+    return  value.substring(0, ChatPreviewComponent.maxMessageLength)+"...";
+  }
 
 }

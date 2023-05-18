@@ -1,9 +1,13 @@
-<div>
-  <div>
+<div class="chat-container">
+  <div class="image-container">
     <app-image-wrapper [source]="chat.image!">
     </app-image-wrapper>
   </div>
-  <div>
-    <p>{{ chat.name }}</p>
+  <div class="content-container">
+    <span class="chat-title">{{ chat.name }}</span>
+    <span class="chat-message">{{ getMessage(lastMessage) }}</span>
+  </div>
+  <div class="dot-container">
+    <img class="dot" src="/assets/input-icons/dot.svg"/>
   </div>
 </div>
