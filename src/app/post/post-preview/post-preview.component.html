@@ -60,6 +60,7 @@
 >
   <ng-template>
     <app-header name="Комментарии" 
+      [useNav]="false"
       (leftClick)="closeCommentModal()">
     </app-header>
 
@@ -74,7 +75,9 @@
 
 <ion-modal #imageModal [isOpen]="openImage">
   <ng-template>
-    <app-header [name]="post.namePost" 
+    <app-header 
+      [name]="post.namePost" 
+      [useNav]="false"
       (leftClick)="imageModal.dismiss();">
     </app-header>
 

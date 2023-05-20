@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AlertController} from '@ionic/angular';
 import { Router} from '@angular/router';
 import { AuthService } from './auth.service';
+import { UrlStackService } from 'src/app/Services/UrlStackService';
 
 @Component({
   selector: 'app-login',
@@ -31,7 +32,9 @@ export class LoginPage {
   constructor(private router: Router,
      private auth: AuthService, 
      private alertController: AlertController)
-  {}
+  {
+    UrlStackService.pushUrl("/login")
+  }
 
   clickLogin()
   {

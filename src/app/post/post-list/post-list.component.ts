@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PostProveider } from "../../Services/PostProveider";
 import { PostView } from "../Post";
 import { ActivatedRoute } from '@angular/router';
+import { UrlStackService } from 'src/app/Services/UrlStackService';
 
 @Component({
   selector: 'app-post-list',
@@ -17,6 +18,12 @@ export class PostListComponent  implements OnInit {
     private route: ActivatedRoute) 
   { 
     this.tag = route.snapshot.params["tag"];
+    if(this.tag){
+      UrlStackService.pushUrl("/main/list/"+this.tag);
+    }
+    else{
+      UrlStackService.pushUrl("/main")
+    }
   }
 
   ngOnInit() {

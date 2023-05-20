@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
+import { UrlStackService } from 'src/app/Services/UrlStackService';
 
 @Component({
   selector: 'app-header',
@@ -11,18 +13,26 @@ export class HeaderComponent {
   @Input() name: string;
   @Input() isHidden: boolean;
   @Input() imgEnd: string;
+  @Input() useNav: boolean;
 
   @Output() leftClick: EventEmitter<void> = new EventEmitter();
   @Output() rightClick: EventEmitter<void> = new EventEmitter();
 
-  constructor(public location: Location) 
+  constructor(private router: Router) 
   {
     this.name = "";
-    this.isHidden = false;
     this.imgEnd = "";
+    this.isHidden = false;
+    this.useNav = true;
   }
 
   onLeftClick(){
+    if(this.useNav){
+      const backUrl = UrlStackService.popLastUrl();
+      if(backUrl){
+        this.router.navigateByUrl(backUrl);
+      } 
+    }
     this.leftClick.emit();
   }
 

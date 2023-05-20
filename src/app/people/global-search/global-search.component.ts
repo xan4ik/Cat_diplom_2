@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CompetanceService } from 'src/app/Services/CompetanceService';
 import { ProfileService } from 'src/app/Services/ProfileService';
+import { UrlStackService } from 'src/app/Services/UrlStackService';
 import { Profile } from 'src/app/profile/profile';
 
 @Component({
@@ -31,6 +32,7 @@ export class GlobalSearchComponent  implements OnInit {
     this.subscriptions = [];
     this.peopleGlobal = [];
     this.globalSearchString = '';
+    UrlStackService.pushUrl("/main/people")
   }
 
   ngOnInit() {

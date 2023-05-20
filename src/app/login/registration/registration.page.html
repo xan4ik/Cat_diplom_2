@@ -1,5 +1,5 @@
 <ion-header>
-  <app-header name = "Регистрация" [isHidden] = "true">
+  <app-header name="Регистрация">
   </app-header>
 </ion-header>
 
@@ -81,6 +81,7 @@
   <ng-template>
     <app-header name = "Выберите город" 
       imgEnd="/assets/input-icons/ok.svg"
+      [useNav]="false"
       (leftClick)="cancelCity(); cityModal.dismiss();"
       (rightClick)="confirmCity(); cityModal.dismiss();">
     </app-header>
@@ -99,6 +100,7 @@
   <ng-template>
     <app-header name = "Выберите компетенцию" 
       imgEnd="/assets/input-icons/ok.svg"
+      [useNav]="false"
       (leftClick)="cancelCompetance(); competanceModal.dismiss();"
       (rightClick)="confirmCompetance(); competanceModal.dismiss();">
     </app-header>

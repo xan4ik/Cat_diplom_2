@@ -1,6 +1,7 @@
 <app-header 
   [name]= "getName()"
-  [isHidden]="true"
+  [useNav]="!isSelfProfile"
+  [isHidden]="isSelfProfile"
   [imgEnd]="isSelfProfile ? '/assets/input-icons/gear.svg' : ''"
   (rightClick)="goToSettings()">
 </app-header>

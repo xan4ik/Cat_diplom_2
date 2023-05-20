@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostProveider } from 'src/app/Services/PostProveider';
 import { Post, PostView } from '../Post';
+import { UrlStackService } from 'src/app/Services/UrlStackService';
 
 @Component({
   selector: 'app-post-detail',
@@ -18,6 +19,7 @@ export class PostDetailComponent  implements OnInit {
     private route: ActivatedRoute)
   {
     this.postID = route.snapshot.params['id'];
+    UrlStackService.pushUrl("/main/posts/post/"+this.postID);
   }
 
   ngOnInit() {

@@ -6,12 +6,14 @@
   </ion-content>
 </ng-template>
 
-<app-header [name]="competance" [isHidden]="true"></app-header>
+<app-header [name]="competance"></app-header>
 <ion-content *ngIf="people.length; else temp">
     <app-select-with-search [items]="people" [searchFunc]="peopleSearchFunc" [showSelect]="false">
       <ng-template let-item #itemView>
-        <app-profile-preview [profile]="item" [routerLink]="['/main/profiles/profile', item.id]">
-        </app-profile-preview>
+        <div style="margin-top: 15px;">
+          <app-profile-preview  [profile]="item" [routerLink]="['/main/profiles/profile', item.id]">
+          </app-profile-preview>
+        </div>
       </ng-template>
     </app-select-with-search>
 </ion-content>
