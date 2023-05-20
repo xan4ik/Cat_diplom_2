@@ -1,3 +1,38 @@
-.message-container{
+
+.main-content{
+    display: flex;
+    flex-direction: column;
+    
+    overflow: scroll;
+    height: 75%;
     width: 100%;
+
+    .message-container{
+        width: 100%;
+        margin-top: 15px;
+    }
+}
+
+.input-conteiner{
+    border: 1px solid #7268DC;
+    border-radius: 10px;
+
+    background-color: #0d061975;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+    margin-top: 10px;
+
+
+    input{
+        display: block;
+        width: 90%;
+        height: calc(2.25rem + 2px);
+        margin-left: 10px;
+        font-size: 1rem;
+        background-color: #ffffff00;
+        border: 1px solid #bdbdbd00;
+    }
 }

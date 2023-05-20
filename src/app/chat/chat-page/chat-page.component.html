@@ -1,13 +1,28 @@
-<app-header name="Чаты" [isHidden]="true"></app-header>
+<app-header [name]="getChatName()" [isHidden]="true"></app-header>
 
 <ng-container *ngIf="chat; else notFound">
-  <ion-content>
-    <div class="message-container" *ngFor="let message of chat.messages">
-      <app-chat-message [message]="message">
-      </app-chat-message>
+  <ion-content class="ion-padding">
+    <div class="main-content">
+      <ng-container *ngIf="chat.messages.length; else noMessages">
+        <div class="message-container" *ngFor="let message of chat.messages">
+          <app-chat-message [message]="message">
+          </app-chat-message>
+        </div>
+      </ng-container>
+    </div>
+    <div class="input-conteiner">
+      <img src="/assets/input-icons/attach.svg" alt="attach">
+      <input type="text" placeholder="Сообщение">
+      <img src="/assets/input-icons/send.svg" alt="send">
     </div>
   </ion-content>
 </ng-container>
+
+<ng-template #noMessages>
+  <div>
+    <p>Сообщений нет</p>
+  </div>
+</ng-template>
 
 <ng-template #notFound>
   <ion-content >

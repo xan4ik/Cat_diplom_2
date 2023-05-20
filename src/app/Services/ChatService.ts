@@ -9,8 +9,164 @@ export class ChatService {
   private messages: Message[] = [
     {
       chatID: 2,
-      profileID: 0,
+      profileID: 2,
       message: "Привет, можешь помочь со встраиванием нейронки а то как-то не работает как хочется, а хотелось бы чтобы работало(",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "Бе бе бе",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "50 рублей",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "Бе бе бе",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "50 рублей",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "Бе бе бе",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "50 рублей",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "Бе бе бе",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "50 рублей",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "Бе бе бе",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "50 рублей",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "Бе бе бе",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "50 рублей",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "Бе бе бе",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "50 рублей",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "Бе бе бе",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "50 рублей",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "Бе бе бе",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "50 рублей",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "Бе бе бе",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "50 рублей",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "Бе бе бе",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "50 рублей",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "Бе бе бе",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "50 рублей",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "Бе бе бе",
+      date: new Date()
+    },
+    {
+      chatID: 2,
+      profileID: 3,
+      message: "50 рублей",
       date: new Date()
     }
   ];
@@ -46,9 +202,20 @@ export class ChatService {
   constructor(private profileService: ProfileService) {
   }
 
+  public postNewMessage(message: string, chatId: number){
+    const currentUserID = this.profileService.getCurrentUserId();
+    const newMessage: Message ={
+      chatID: chatId,
+      profileID: currentUserID,
+      message: message,
+      date: new Date()
+    } 
+    
+    this.messages.push(newMessage);
+  }
 
   public getChatByID(id: number): ChatView | undefined{
-    return this.getAllChats().find(x => x.ID == id);
+    return this.getAllChats().find(x => x.ID == id)
   }
 
   public getAllChats(): ChatView[] {

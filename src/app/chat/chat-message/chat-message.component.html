@@ -1,18 +1,16 @@
 <ng-container *ngIf="isCurrentUserMessage; else otherUser">
   <div class="message-without-icon">
-    <ng-container *ngTemplateOutlet="messageBlock"></ng-container>
+    <div class="text-container">
+      <span class="text">{{ message.message }}</span>
+    </div>
   </div>
 </ng-container>
 
 <ng-template #otherUser>
   <div class="message-with-icon">
-    <app-image-wrapper [source]="message.profile.imageSource"></app-image-wrapper>
-    <ng-container *ngTemplateOutlet="messageBlock"></ng-container>
-  </div>
-</ng-template>
-
-<ng-template #messageBlock>
-  <div class="text-container">
-    <span class="text">{{ message.message }}</span>
+    <app-image-wrapper [source]="message.profile.imageSource" [size]="imageSize"></app-image-wrapper>
+    <div class="margin-left text-container">
+      <span class="text">{{ message.message }}</span>
+    </div>
   </div>
 </ng-template>
