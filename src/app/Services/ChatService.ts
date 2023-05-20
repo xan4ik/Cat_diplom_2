@@ -202,7 +202,7 @@ export class ChatService {
   constructor(private profileService: ProfileService) {
   }
 
-  public postNewMessage(message: string, chatId: number){
+  public postNewMessage(message: string, chatId: number) : MessageView{
     const currentUserID = this.profileService.getCurrentUserId();
     const newMessage: Message ={
       chatID: chatId,
@@ -211,7 +211,16 @@ export class ChatService {
       date: new Date()
     } 
     
+    const result: MessageView = {
+      chatID: newMessage.chatID,
+      profileID: newMessage.profileID,
+      message: newMessage.message,
+      date: newMessage.date,
+      profile: this.profileService.getProfileById(this.profileService.getCurrentUserId())!
+    }
+
     this.messages.push(newMessage);
+    return result;
   }
 
   public getChatByID(id: number): ChatView | undefined{

@@ -2,7 +2,7 @@
 
 <ng-container *ngIf="chat; else notFound">
   <ion-content class="ion-padding">
-    <div class="main-content">
+    <div class="main-content" #messageBar>
       <ng-container *ngIf="chat.messages.length; else noMessages">
         <div class="message-container" *ngFor="let message of chat.messages">
           <app-chat-message [message]="message">
@@ -12,8 +12,8 @@
     </div>
     <div class="input-conteiner">
       <img src="/assets/input-icons/attach.svg" alt="attach">
-      <input type="text" placeholder="Сообщение">
-      <img src="/assets/input-icons/send.svg" alt="send">
+      <input type="text" placeholder="Сообщение" #input>
+      <img src="/assets/input-icons/send.svg" alt="send" (click)="sendNewMessage(input.value); input.value=''">
     </div>
   </ion-content>
 </ng-container>
