@@ -21,5 +21,6 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ],
   declarations: [PostPreviewComponent, PostListComponent, PostDetailComponent],
+  exports: [PostPreviewComponent]
 })
 export class PostModule { }

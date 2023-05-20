@@ -88,6 +88,10 @@ export class PostProveider {
     return this.getAllPosts().find(x => x.id == id);
   }
 
+  getPostsByProfileId(id: number): PostView[]{
+    return this.getAllPosts().filter(x => x.authorId == id);
+  }
+
   getPostsWithTag(selectedTag: string): PostView[] {
     const result: PostView[] = this.getAllPosts();
     return result.filter(x => {

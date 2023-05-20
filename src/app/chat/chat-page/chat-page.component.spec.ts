@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { MessagePreviewComponent } from './message-preview.component';
+import { ChatPageComponent } from './chat-page.component';
 
-describe('MessagePreviewComponent', () => {
-  let component: MessagePreviewComponent;
-  let fixture: ComponentFixture<MessagePreviewComponent>;
+describe('ChatPageComponent', () => {
+  let component: ChatPageComponent;
+  let fixture: ComponentFixture<ChatPageComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MessagePreviewComponent ],
+      declarations: [ ChatPageComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MessagePreviewComponent);
+    fixture = TestBed.createComponent(ChatPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

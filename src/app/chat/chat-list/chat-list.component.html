@@ -1,14 +1,17 @@
 <app-header name="Чаты" [isHidden]="true"></app-header>
 
-<ion-content>
-  <ng-container *ngIf="chats?.length; else noFound">
-    <ng-container *ngFor="let item of chats">
+
+<ng-container *ngIf="chats?.length; else noFound">
+  <ion-content>
+    <div class="chat-holder" *ngFor="let item of chats" [routerLink]="['/main/chats/chat/', item.ID]">
       <app-chat-preview [chat]="item">
       </app-chat-preview>
-    </ng-container>
-  </ng-container>
-</ion-content>
+    </div>
+  </ion-content>
+</ng-container>
 
 <ng-template #noFound>
-  <p>Активных чатов нет</p>
+  <ion-content>
+    <p>Активных чатов нет</p>
+  </ion-content>
 </ng-template>

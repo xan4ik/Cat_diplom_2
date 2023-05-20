@@ -7,6 +7,7 @@ import { ProfileService } from '../Services/ProfileService';
 import { IonicModule } from '@ionic/angular';
 import { ProfileDetailComponent } from './profile-detail/profile-detail.component';
 import { ProfileSettingsComponent } from './profile-settings/profile-settings.component';
+import { PostModule } from '../post/post.module';
 
 
 
@@ -15,6 +16,7 @@ import { ProfileSettingsComponent } from './profile-settings/profile-settings.co
     CommonModule,
     AppComponentsModuleModule,
     ProfileRoutingModule,
+    PostModule,
     IonicModule
   ],
   declarations: [ProfilePreviewComponent, ProfileDetailComponent, ProfileSettingsComponent],

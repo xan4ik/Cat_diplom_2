@@ -1,5 +1,5 @@
 <app-header 
-  name="Профиль"
+  [name]= "getName()"
   [isHidden]="true"
   [imgEnd]="isSelfProfile ? '/assets/input-icons/gear.svg' : ''"
   (rightClick)="goToSettings()">
@@ -15,9 +15,13 @@
         <div *ngIf="isSubscribtion(); else subscribe" 
           class="subscribe-container"
           (click)="solveSubscription()">
-
-          <img src="/assets/input-icons/unsubscribe.svg"/>
-          <span>Отписаться</span>
+          <div>
+            <img src="/assets/input-icons/unsubscribe.svg"/>
+            <span>Вы подписаны</span>
+          </div>
+          <div>
+            <img src="/assets/input-icons/mes.svg"/>
+          </div>
         </div>
       </ng-container>
     </div>
@@ -51,9 +55,17 @@
       <div class="line"></div>
     </div>
 
+    <div id="posts" class="data-block" *ngIf="posts && posts.length > 0">
+      <h2 class="data-header">{{getPostBlockHeader()}}</h2>
+        <div *ngFor="let post of posts">
+          <app-post-preview [post]="post">
+          </app-post-preview>
+        </div>
+      <div class="line"></div>
+    </div>
+
   </ion-content>
 </ng-container>
-
 
 <ng-template #notFound>
   <div class="full-screen center-content">
@@ -66,7 +78,12 @@
 
 <ng-template #subscribe>
   <div class="subscribe-container" (click)="solveSubscription()">
-    <img src="/assets/input-icons/subscribe.svg"/>
-    <span>Подписаться</span>
+    <div>
+      <img src="/assets/input-icons/subscribe.svg"/>
+      <span>Подписаться</span>
+    </div>
+    <div>
+      <img src="/assets/input-icons/mes.svg"/>
+    </div>
   </div>
 </ng-template>

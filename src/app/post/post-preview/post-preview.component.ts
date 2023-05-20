@@ -5,6 +5,7 @@ import { PostProveider } from '../../Services/PostProveider';
 import { CommentService } from 'src/app/Services/CommentService';
 import { ImageSize } from 'src/app/app-components-module/image-wrapper/image-wrapper.component';
 import { IonModal } from '@ionic/angular';
+import { ProfileService } from 'src/app/Services/ProfileService';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { IonModal } from '@ionic/angular';
   templateUrl: './post-preview.component.html',
   styleUrls: ['./post-preview.component.scss'],
 })
-export class PostPreviewComponent implements OnDestroy{
+export class PostPreviewComponent implements OnDestroy, OnInit{
 
   @ViewChild('commentModal') commentModal: IonModal | undefined;
   @ViewChild('imageModal') imageModal: IonModal | undefined;
@@ -24,8 +25,13 @@ export class PostPreviewComponent implements OnDestroy{
   openComments: boolean = false;
   openImage: boolean = false;
 
-  constructor(private commentService: CommentService){
+  imgCurrentUser: string = "";
+
+  constructor(private commentService: CommentService, private profileService: ProfileService){
     this.short = true;
+  }
+  ngOnInit(): void {
+    this.imgCurrentUser = this.profileService.getProfileById(this.profileService.getCurrentUserId())!.imageSource;
   }
 
   getAuthorName(profile: Profile) : string{

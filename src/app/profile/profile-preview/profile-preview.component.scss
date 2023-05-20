@@ -8,15 +8,15 @@
 
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
 
-    .image-container{
+    .image-container
+    {
         width: 30%;
-        display: flex;
     }
 
     .data-container{
-        width: 65%;
+        width: 70%;
         height: auto;
         display: flex;
         flex-direction: column;
@@ -25,7 +25,9 @@
             width: 100%;
             height: auto;
 
-            white-space: nowrap;
+            white-space: wrap;
+            font-size: 15px;
+            text-align: left;
         }
     }
 }

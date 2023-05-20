@@ -1,0 +1,16 @@
+<app-header name="Чаты" [isHidden]="true"></app-header>
+
+<ng-container *ngIf="chat; else notFound">
+  <ion-content>
+    <div class="message-container" *ngFor="let message of chat.messages">
+      <app-chat-message [message]="message">
+      </app-chat-message>
+    </div>
+  </ion-content>
+</ng-container>
+
+<ng-template #notFound>
+  <ion-content >
+    <p>Чата не существует</p>
+  </ion-content>
+</ng-template>

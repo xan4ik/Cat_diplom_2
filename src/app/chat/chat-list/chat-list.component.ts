@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ChatService, ChatView } from '../chat-preview/chat-preview.component';
+import { ChatView } from '../chat-preview/chat-preview.component';
+import { ChatService } from "../../Services/ChatService";
 
 @Component({
   selector: 'app-chat-list',

@@ -21,7 +21,7 @@ class TabItemProvider{
         activeImage: "/assets/input-icons/peoplePageActive.svg"
       },
       {
-        routeLink: "",
+        routeLink: "/main/chats",
         defaultImage: "/assets/input-icons/chatPage.svg",
         activeImage: "/assets/input-icons/chatPageActive.svg"
       },
@@ -38,8 +38,6 @@ class TabItemProvider{
     ]
   } 
 }
-
-
 
 @Component({
   selector: 'app-tabs',

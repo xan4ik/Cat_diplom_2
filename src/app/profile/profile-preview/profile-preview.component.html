@@ -1,6 +1,8 @@
 <div class="preview">
-  <app-image-wrapper [source]="profile.imageSource" [size]="size">
-  </app-image-wrapper>
+  <div class="image-container">
+    <app-image-wrapper [source]="profile.imageSource" [size]="size">
+    </app-image-wrapper>
+  </div>
 
   <div class="data-container">
     <span class="name">{{getFullName()}}</span>

@@ -27,10 +27,17 @@
     }
 
     .subscribe-container{
-        text-align: center;
+        display: flex;
+        margin-left: 32%;
+        font-size: 13px;
+        align-items: center;
+        justify-content: space-between;
+
 
         img{
             margin-right: 10px;
+            width: 16px;
+            height: 16px;
         }
     }
 }
