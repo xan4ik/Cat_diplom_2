@@ -26,12 +26,12 @@ class TabItemProvider{
         activeImage: "/assets/input-icons/chatPageActive.svg"
       },
       {
-        routeLink: "",
+        routeLink: "/main/map",
         defaultImage: "/assets/input-icons/mapPage.svg",
         activeImage: "/assets/input-icons/mapPageActive.svg"
       },
       {
-        routeLink: "profiles",
+        routeLink: "/main/profiles",
         defaultImage: "/assets/input-icons/people.svg",
         activeImage: "/assets/input-icons/profilePageActive.svg"
       }
