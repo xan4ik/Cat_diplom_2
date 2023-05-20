@@ -32,7 +32,7 @@ export interface MessageView extends Message {
   styleUrls: ['./chat-preview.component.scss'],
 })
 export class ChatPreviewComponent  implements OnInit {
-  static maxMessageLength = 50; 
+  static maxMessageLength = 45; 
 
   @Input() chat!: ChatView;
   lastMessage: string;

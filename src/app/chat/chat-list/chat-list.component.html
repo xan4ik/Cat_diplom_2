@@ -2,7 +2,7 @@
 
 
 <ng-container *ngIf="chats?.length; else noFound">
-  <ion-content>
+  <ion-content class="ion-padding">
     <div class="chat-holder" *ngFor="let item of chats" [routerLink]="['/main/chats/chat/', item.ID]">
       <app-chat-preview [chat]="item">
       </app-chat-preview>
