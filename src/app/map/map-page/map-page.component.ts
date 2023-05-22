@@ -19,16 +19,30 @@ export class MapPageComponent  implements OnInit {
 
   city: string = "";
   globalSearchString: string;
-  places: string[];
+  //places: string[];
   typesPlace: string[];
   
   open: boolean = false;
-  showItem!: MapItem;
+  showItem: MapItem = {
+    title: "Steak house Why Not bar",
+    type: "",
+    score: 4.7,
+    image: "/assets/img/whyNot.png",
+    description: 
+    `Цены: выше среднего. Средний счёт: 1200–1500 рублей. 
+    \nСпособ оплаты: наличными, оплата картой. 
+    \nКухня: европейская, американская, итальянская, русская, английская. 
+    \nТипы доставки: Delivery-club. 
+    \nОсобенности: летняя веранда, крафтовое пиво, проектор, спортивные трансляции. 
+    \nСпециальное меню: постное, сезонное, детское. 
+    \nОсобенности заведения: меню на английском, бесплатная парковка, барная стойка, винная карта.`
+  };
     
   constructor(private profileService: ProfileService){
     this.globalSearchString = '';
-    this.places = ["Додо Пицца", "Вкусно и точка"];
+    //this.places = ["Додо Пицца", "Вкусно и точка"];
     this.typesPlace = ["Кафе", "Ресторан", "Парк", "Кофейня", "Библиотека", "Коворкинг", "Анти-кафе", "Творческие пространства"];
+    this.showItem.type = this.typesPlace[1];
   }
   
   ngOnInit(){

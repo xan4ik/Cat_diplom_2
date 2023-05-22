@@ -17,26 +17,33 @@
   <div class="map-container">
     <iframe class="map" src="https://yandex.ru/map-widget/v1/?um=constructor:aa868d943198bfb4eb28b88af4122977939e7d3f1c1027d8a83604c947e10f10&amp;source=constructor" frameborder="0"></iframe>
   </div>
+
+  <button class="obman" id="map-modal"></button>
 </ion-content>
 
 
 <ion-modal trigger="map-modal" #modal>
-  <app-header [name]="showItem.title" [useNav]="false" (leftClick)="modal.dismiss()"></app-header>
-  <ion-content>
-    <div class="modal-header">
-      <div>
-        <span>{{showItem.title}}</span>
-        <span>{{showItem.score}}</span>
+  <ng-template>
+    <app-header [name]="showItem.title" [useNav]="false" (leftClick)="modal.dismiss()"></app-header>
+    <ion-content class="ion-padding">
+      <div class="modal-header">
+        <div class="flex">
+          <span id="title">{{showItem.title}}</span>
+          <div>
+            <img class="iconStar" src="assets/img/star.png" alt="">
+            <span>{{showItem.score}}</span>
+          </div>
+        </div>
+        <div class="modal-sub-header">
+          <span>{{showItem.type}}</span>
+        </div>
       </div>
-      <div class="modal-sub-header">
-        <span>{{showItem.type}}</span>
+      <div class="modal-image">
+        <img [src]="showItem.image"/>
       </div>
-    </div>
-    <div class="modal-image">
-      <img [src]="showItem.image"/>
-    </div>
-    <div class="description">
-      <span class="description-text">{{showItem.description}}</span>
-    </div>
-  </ion-content>
+      <div style="white-space:pre-wrap">
+          <span class="description-text">{{showItem.description}}</span>
+      </div>
+    </ion-content>
+  </ng-template>
 </ion-modal>
